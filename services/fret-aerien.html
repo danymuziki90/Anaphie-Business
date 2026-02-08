@@ -320,64 +320,10 @@
     <!-- Custom JS -->
     <script src="js/main.js"></script>
     <!-- Interactive Features JS -->
-    <script src="js/interactive.js"></script>
+    <script src="../js/interactive.js"></script>
     
-    <!-- Mobile Dropdown Fix Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Attendre que Bootstrap soit chargé
-            setTimeout(function() {
-                // Supprimer tous les gestionnaires d'événements Bootstrap sur les dropdowns
-                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-                
-                dropdownToggles.forEach(function(toggle) {
-                    // Cloner l'élément pour éviter les conflits Bootstrap
-                    const newToggle = toggle.cloneNode(true);
-                    toggle.parentNode.replaceChild(newToggle, toggle);
-                    
-                    // Ajouter notre gestionnaire d'événements
-                    newToggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        const dropdownMenu = this.nextElementSibling;
-                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                        
-                        // Fermer tous les autres dropdowns
-                        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                            menu.classList.remove('show');
-                            menu.classList.add('hide');
-                            menu.previousElementSibling.setAttribute('aria-expanded', 'false');
-                        });
-                        
-                        // Basculer le dropdown actuel en utilisant les classes CSS
-                        if (isExpanded) {
-                            dropdownMenu.classList.remove('show');
-                            dropdownMenu.classList.add('hide');
-                            this.setAttribute('aria-expanded', 'false');
-                        } else {
-                            dropdownMenu.classList.remove('hide');
-                            dropdownMenu.classList.add('show');
-                            this.setAttribute('aria-expanded', 'true');
-                        }
-                    });
-                });
-                
-                // Fermer les dropdowns en cliquant ailleurs
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.dropdown')) {
-                        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                            menu.classList.remove('show');
-                            menu.classList.add('hide');
-                        });
-                        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-                            toggle.setAttribute('aria-expanded', 'false');
-                        });
-                    }
-                });
-            }, 100);
-        });
-    </script>
+    <!-- Dropdown Initialization Script -->
+    <script src="../js/dropdown-init.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {

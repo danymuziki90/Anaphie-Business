@@ -72,14 +72,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos services</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="services/fret-aerien.html"><i
-                                        class="fas fa-plane me-2"></i>Fret aérien</a></li>
-                            <li><a class="dropdown-item" href="services/fret-maritime.html"><i
-                                        class="fas fa-ship me-2"></i>Fret maritime</a></li>
-                            <li><a class="dropdown-item" href="services/import-vehicules.html"><i
-                                        class="fas fa-car me-2"></i>Import véhicules</a></li>
-                            <li><a class="dropdown-item" href="services/materiaux-equipements.html"><i
-                                        class="fas fa-cube me-2"></i>Matériaux & équipements</a></li>
+                            <li><a class="dropdown-item" href="services/fret-aerien.html"><i class="fas fa-plane me-2"></i>Fret aérien</a></li>
+                            <li><a class="dropdown-item" href="services/fret-maritime.html"><i class="fas fa-ship me-2"></i>Fret maritime</a></li>
+                            <li><a class="dropdown-item" href="services/import-vehicules.html"><i class="fas fa-car me-2"></i>Import véhicules</a></li>
+                            <li><a class="dropdown-item" href="services/materiaux-equipements.html"><i class="fas fa-cube me-2"></i>Matériaux & équipements</a></li>
+                            <li><a class="dropdown-item" href="services/dedouanement.html"><i class="fas fa-file-check me-2"></i>Dédouanement</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="zones-desservies.html">Zones desservies</a></li>
@@ -410,61 +407,7 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Attendre que Bootstrap soit chargé
-            setTimeout(function() {
-                // Supprimer tous les gestionnaires d'événements Bootstrap sur les dropdowns
-                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-                
-                dropdownToggles.forEach(function(toggle) {
-                    // Cloner l'élément pour éviter les conflits Bootstrap
-                    const newToggle = toggle.cloneNode(true);
-                    toggle.parentNode.replaceChild(newToggle, toggle);
-                    
-                    // Ajouter notre gestionnaire d'événements
-                    newToggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        const dropdownMenu = this.nextElementSibling;
-                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                        
-                        // Fermer tous les autres dropdowns
-                        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                            menu.classList.remove('show');
-                            menu.classList.add('hide');
-                            menu.previousElementSibling.setAttribute('aria-expanded', 'false');
-                        });
-                        
-                        // Basculer le dropdown actuel
-                        if (isExpanded) {
-                            dropdownMenu.classList.remove('show');
-                            dropdownMenu.classList.add('hide');
-                            this.setAttribute('aria-expanded', 'false');
-                        } else {
-                            dropdownMenu.classList.remove('hide');
-                            dropdownMenu.classList.add('show');
-                            this.setAttribute('aria-expanded', 'true');
-                        }
-                    });
-                });
-                
-                // Fermer les dropdowns en cliquant ailleurs
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.dropdown')) {
-                        document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                            menu.classList.remove('show');
-                            menu.classList.add('hide');
-                        });
-                        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-                            toggle.setAttribute('aria-expanded', 'false');
-                        });
-                    }
-                });
-            }, 100);
-        });
-    </script>
+    <script src="js/dropdown-init.js"></script>
     <script src="js/main.js"></script>
 </body>
 
