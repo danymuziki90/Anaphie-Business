@@ -768,6 +768,53 @@
     <!-- Interactive Features JS -->
     <script src="js/interactive.js"></script>
     
+    <!-- Mobile Dropdown Fix Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix pour les dropdowns sur mobile
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(function(toggle) {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const dropdownMenu = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Fermer tous les autres dropdowns
+                    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                        if (menu !== dropdownMenu) {
+                            menu.style.display = 'none';
+                            menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Basculer le dropdown actuel
+                    if (isExpanded) {
+                        dropdownMenu.style.display = 'none';
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        dropdownMenu.style.display = 'block';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+            
+            // Fermer les dropdowns en cliquant ailleurs
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                        menu.style.display = 'none';
+                    });
+                    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        });
+    </script>
+    
     <!-- Scroll Animations Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
