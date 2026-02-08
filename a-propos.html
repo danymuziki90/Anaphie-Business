@@ -430,18 +430,19 @@
                         
                         // Fermer tous les autres dropdowns
                         document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                            if (menu !== dropdownMenu) {
-                                menu.style.display = 'none';
-                                menu.previousElementSibling.setAttribute('aria-expanded', 'false');
-                            }
+                            menu.classList.remove('show');
+                            menu.classList.add('hide');
+                            menu.previousElementSibling.setAttribute('aria-expanded', 'false');
                         });
                         
                         // Basculer le dropdown actuel
                         if (isExpanded) {
-                            dropdownMenu.style.display = 'none';
+                            dropdownMenu.classList.remove('show');
+                            dropdownMenu.classList.add('hide');
                             this.setAttribute('aria-expanded', 'false');
                         } else {
-                            dropdownMenu.style.display = 'block';
+                            dropdownMenu.classList.remove('hide');
+                            dropdownMenu.classList.add('show');
                             this.setAttribute('aria-expanded', 'true');
                         }
                     });
@@ -451,7 +452,8 @@
                 document.addEventListener('click', function(e) {
                     if (!e.target.closest('.dropdown')) {
                         document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                            menu.style.display = 'none';
+                            menu.classList.remove('show');
+                            menu.classList.add('hide');
                         });
                         document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
                             toggle.setAttribute('aria-expanded', 'false');

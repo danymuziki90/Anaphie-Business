@@ -691,20 +691,7 @@ a:hover {
 
 /* Mobile Dropdown Menu Fix */
 @media (max-width: 991.98px) {
-    /* Rendre le dropdown visible même quand le menu mobile est fermé */
-    .navbar-collapse.show .navbar-nav .dropdown-menu {
-        position: absolute;
-        background: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
-        min-width: 200px;
-        z-index: 1000;
-        display: block !important;
-    }
-    
-    /* Forcer l'affichage du dropdown sur mobile */
+    /* Rendre le dropdown invisible par défaut */
     .navbar-nav .dropdown-menu {
         position: absolute;
         background: white;
@@ -714,6 +701,27 @@ a:hover {
         margin-top: 10px;
         min-width: 200px;
         z-index: 1000;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    
+    /* Afficher le dropdown uniquement au clic */
+    .navbar-nav .dropdown-menu.show {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0);
+    }
+    
+    /* Cacher le dropdown quand on clique ailleurs */
+    .navbar-nav .dropdown-menu.hide {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        transform: translateY(-10px);
     }
     
     .navbar-nav .dropdown-item {
@@ -751,6 +759,15 @@ a:hover {
         position: relative;
     }
     
+    .navbar-collapse.show .navbar-nav .dropdown-menu {
+        position: absolute;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        min-width: 200px;
+        z-index: 1000;
     .navbar-collapse.show .dropdown-menu {
         display: block !important;
         visibility: visible !important;
