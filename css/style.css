@@ -691,6 +691,20 @@ a:hover {
 
 /* Mobile Dropdown Menu Fix */
 @media (max-width: 991.98px) {
+    /* Rendre le dropdown visible même quand le menu mobile est fermé */
+    .navbar-collapse.show .navbar-nav .dropdown-menu {
+        position: absolute;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        min-width: 200px;
+        z-index: 1000;
+        display: block !important;
+    }
+    
+    /* Forcer l'affichage du dropdown sur mobile */
     .navbar-nav .dropdown-menu {
         position: absolute;
         background: white;
@@ -699,6 +713,7 @@ a:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         margin-top: 10px;
         min-width: 200px;
+        z-index: 1000;
     }
     
     .navbar-nav .dropdown-item {
@@ -714,6 +729,9 @@ a:hover {
     
     .navbar-nav .dropdown-toggle {
         position: relative;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .navbar-nav .dropdown-toggle::after {
@@ -726,6 +744,16 @@ a:hover {
     
     .navbar-nav .dropdown-toggle[aria-expanded="true"]::after {
         transform: rotate(180deg);
+    }
+    
+    /* S'assurer que le dropdown est visible au-dessus du menu mobile */
+    .navbar-collapse {
+        position: relative;
+    }
+    
+    .navbar-collapse.show .dropdown-menu {
+        display: block !important;
+        visibility: visible !important;
     }
 }
 
