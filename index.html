@@ -20,10 +20,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anaphie-business.com/">
     <meta property="og:title" content="ANAPHIE BUSINESS - Fret International Dubaï–Kinshasa | Logistique & Dédouanement">
-    <meta property="og:description" content="Expert en fret international Dubaï–Kinshasa. Services complets de logistique, transport aérien et maritime, dédouanement, import de véhicules et matériaux en RDC. Devis gratuit en 24h.">
+    <meta property="og:description" content="🚚 Expert en fret international Dubaï–Kinshasa depuis 2010. Services complets de logistique, transport aérien et maritime, dédouanement, import de véhicules et matériaux en RDC. 📦 Devis gratuit en 24h. ✈️🚢">
     <meta property="og:image" content="https://anaphie-business.com/img/logo.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ANAPHIE BUSINESS - Logo Fret International">
     <meta property="og:site_name" content="ANAPHIE BUSINESS">
     <meta property="og:locale" content="fr_FR">
     
@@ -31,8 +32,22 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://anaphie-business.com/">
     <meta name="twitter:title" content="ANAPHIE BUSINESS - Fret International Dubaï–Kinshasa">
-    <meta name="twitter:description" content="Expert en fret international Dubaï–Kinshasa. Services complets de logistique, transport aérien et maritime, dédouanement, import de véhicules et matériaux en RDC.">
+    <meta name="twitter:description" content="🚚 Expert en fret international Dubaï–Kinshasa. Services logistiques complets, transport aérien/maritime, dédouanement, import véhicules. 📦 Devis gratuit 24h. ✈️🚢">
     <meta name="twitter:image" content="https://anaphie-business.com/img/logo.jpg">
+    <meta name="twitter:image:alt" content="ANAPHIE BUSINESS - Logo Fret International">
+    
+    <!-- WhatsApp/LinkedIn Sharing -->
+    <meta property="og:site_name" content="ANAPHIE BUSINESS">
+    <meta property="og:description" content="🚚 ANAPHIE BUSINESS - Votre expert en fret international Dubaï–Kinshasa depuis 2010 ✈️🚢
+📦 Services complets : Transport aérien & maritime, dédouanement, import véhicules & matériaux
+🌍 Présence stratégique : Kinshasa, Dubaï, Matadi
+⚡ Devis gratuit en 24h
+📞 Contactez-nous : +243 811 797 202 | +971 55 667 6877
+🌐 Site web : https://anaphie-business.com">
+    
+    <!-- Additional Meta for Sharing -->
+    <meta name="subject" content="ANAPHIE BUSINESS - Services de Fret International">
+    <meta name="description" content="ANAPHIE BUSINESS - Expert en fret international Dubaï–Kinshasa. Services complets de logistique, transport aérien et maritime, dédouanement, import de véhicules et matériaux en RDC. Présence à Kinshasa, Dubaï et Matadi. Devis gratuit en 24h. Contact : +243 811 797 202 | +971 55 667 6877">
     
     <!-- Additional SEO -->
     <link rel="canonical" href="https://anaphie-business.com/">
@@ -838,10 +853,12 @@
     <!-- Dropdown Initialization Script -->
     <script src="js/dropdown-init.js"></script>
     
-    <!-- Mobile Dropdown Fix Script -->
+    <!-- Consolidated Application Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fix for mobile dropdown - improved version
+            // ==========================================
+            // MOBILE DROPDOWN FIX
+            // ==========================================
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             
             dropdownToggles.forEach(function(toggle) {
@@ -934,19 +951,16 @@
                 });
                 observer.observe(navbar, { attributes: true });
             }
-        });
-    </script>
-    
-    <!-- Scroll Animations Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Intersection Observer for scroll animations
+
+            // ==========================================
+            // SCROLL ANIMATIONS
+            // ==========================================
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
             
-            const observer = new IntersectionObserver(function(entries) {
+            const scrollObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.visibility = 'visible';
@@ -959,7 +973,7 @@
                         entry.target.classList.add(`animate__${animation}`);
                         entry.target.style.animationDelay = delay;
                         
-                        observer.unobserve(entry.target);
+                        scrollObserver.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -967,7 +981,7 @@
             // Observe all elements with animation data attributes
             document.querySelectorAll('[data-animation]').forEach(el => {
                 el.style.visibility = 'hidden';
-                observer.observe(el);
+                scrollObserver.observe(el);
             });
             
             // Add hover effects to service cards
@@ -992,60 +1006,60 @@
                     }, 1000);
                 });
             });
-        });
-    </script>
-    
-    <!-- Hero Carousel Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let currentSlide = 0;
+
+            // ==========================================
+            // HERO CAROUSEL
+            // ==========================================
             const slides = document.querySelectorAll('.carousel-slide');
             const indicators = document.querySelectorAll('.indicator');
-            const totalSlides = slides.length;
             
-            // Auto-change slide every 5 seconds
-            function nextSlide() {
-                slides[currentSlide].classList.remove('active');
-                indicators[currentSlide].classList.remove('active');
+            if (slides.length > 0 && indicators.length > 0) {
+                let currentSlide = 0;
+                const totalSlides = slides.length;
+                let carouselInterval;
                 
-                currentSlide = (currentSlide + 1) % totalSlides;
+                function nextSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    indicators[currentSlide].classList.remove('active');
+                    
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    
+                    slides[currentSlide].classList.add('active');
+                    indicators[currentSlide].classList.add('active');
+                }
                 
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
+                function goToSlide(slideIndex) {
+                    slides[currentSlide].classList.remove('active');
+                    indicators[currentSlide].classList.remove('active');
+                    
+                    currentSlide = slideIndex;
+                    
+                    slides[currentSlide].classList.add('active');
+                    indicators[currentSlide].classList.add('active');
+                }
+                
+                // Start automatic carousel
+                carouselInterval = setInterval(nextSlide, 5000);
+                
+                // Pause on hover
+                const heroSection = document.querySelector('.hero-section-new');
+                if (heroSection) {
+                    heroSection.addEventListener('mouseenter', () => {
+                        clearInterval(carouselInterval);
+                    });
+                    
+                    heroSection.addEventListener('mouseleave', () => {
+                        carouselInterval = setInterval(nextSlide, 5000);
+                    });
+                }
+                
+                // Make goToSlide available globally
+                window.goToSlide = goToSlide;
             }
-            
-            // Manual slide change
-            function goToSlide(slideIndex) {
-                slides[currentSlide].classList.remove('active');
-                indicators[currentSlide].classList.remove('active');
-                
-                currentSlide = slideIndex;
-                
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
-            }
-            
-            // Start automatic carousel
-            const carouselInterval = setInterval(nextSlide, 5000);
-            
-            // Pause on hover
-            const heroSection = document.querySelector('.hero-section-new');
-            heroSection.addEventListener('mouseenter', () => {
-                clearInterval(carouselInterval);
-            });
-            
-            heroSection.addEventListener('mouseleave', () => {
-                setInterval(nextSlide, 5000);
-            });
-            
-            // Make goToSlide available globally
-            window.goToSlide = goToSlide;
-        });
-    </script>
-    
-    <!-- Video Control Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+
+            // ==========================================
+            // VIDEO CONTROL
+            // ==========================================
             const video = document.querySelector('.hero-video');
             const playIcon = document.querySelector('.video-play-icon');
             const overlay = document.querySelector('.video-overlay');
