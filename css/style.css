@@ -851,9 +851,9 @@ a:hover {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, 
-        rgba(0, 0, 0, 0.5) 0%, 
-        rgba(0, 0, 0, 0.4) 50%, 
-        rgba(0, 0, 0, 0.5) 100%);
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0.3) 100%);
     z-index: 1;
 }
 
@@ -923,6 +923,152 @@ a:hover {
     .page-header-about .lead {
         font-size: 1rem;
     }
+}
+
+/* ---- PAGE HEADERS AVEC IMAGES ---- */
+.page-header-contact {
+    background-image: url('../img/contact page hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-faq {
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-pourquoi {
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-zones {
+    background-image: url('../img/zone page hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-fret-aerien {
+    background-image: url('../img/Fret Aérien Express.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-fret-maritime {
+    background-image: url('../img/Fret Maritime.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-import {
+    background-image: url('../img/buy car.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-materiaux {
+    background-image: url('../img/worker-cuts-iron-with-tool.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-header-dedouanement {
+    background-image: url('../img/Dédouanement.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Styles communs pour tous les headers avec images */
+.page-header-contact .container,
+.page-header-faq .container,
+.page-header-pourquoi .container,
+.page-header-zones .container,
+.page-header-fret-aerien .container,
+.page-header-fret-maritime .container,
+.page-header-import .container,
+.page-header-materiaux .container,
+.page-header-dedouanement .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header-contact h1,
+.page-header-faq h1,
+.page-header-pourquoi h1,
+.page-header-zones h1,
+.page-header-fret-aerien h1,
+.page-header-fret-maritime h1,
+.page-header-import h1,
+.page-header-materiaux h1,
+.page-header-dedouanement h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: fadeInDown 1s ease-out;
+}
+
+.page-header-contact .lead,
+.page-header-faq .lead,
+.page-header-pourquoi .lead,
+.page-header-zones .lead,
+.page-header-fret-aerien .lead,
+.page-header-fret-maritime .lead,
+.page-header-import .lead,
+.page-header-materiaux .lead,
+.page-header-dedouanement .lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    animation: fadeInUp 1s ease-out;
 }
 
 /* ---- PAGE HEADER ---- */
