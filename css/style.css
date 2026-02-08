@@ -727,6 +727,12 @@ a:hover {
         transform: translateY(-10px);
     }
     
+    /* S'assurer que le dropdown est visible au-dessus du menu mobile */
+    .navbar-nav .dropdown-menu {
+        position: absolute !important;
+        z-index: 1001 !important;
+    }
+    
     .navbar-nav .dropdown-item {
         padding: 8px 16px;
         color: #333 !important;
@@ -827,11 +833,10 @@ a:hover {
 
 /* ---- PAGE HEADER À PROPOS AVEC BACKGROUND ---- */
 .page-header-about {
-    background-image: url('img/worker-cuts-iron-with-tool.jpg');
+    background-image: url('../img/apropos-page-hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #333;
     min-height: 400px;
     display: flex;
     align-items: center;
