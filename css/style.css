@@ -296,10 +296,13 @@
 /* Toast Container */
 .toast-container {
     position: fixed;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
     z-index: 9999;
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
 }
 
 /* Toast Styles */
@@ -754,12 +757,12 @@ a:hover {
         transform: rotate(180deg);
     }
     
-    /* S'assurer que le dropdown est visible au-dessus du menu mobile */
+    /* S'assurer que le dropdown est invisible au-dessus du menu mobile */
     .navbar-collapse {
         position: relative;
     }
     
-    .navbar-collapse.show .navbar-nav .dropdown-menu {
+    .navbar-collapse.show .dropdown-menu {
         position: absolute;
         background: white;
         border: 1px solid #e0e0e0;
@@ -768,7 +771,14 @@ a:hover {
         margin-top: 10px;
         min-width: 200px;
         z-index: 1000;
-    .navbar-collapse.show .dropdown-menu {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-collapse.show .dropdown-menu.show {
         display: block !important;
         visibility: visible !important;
     }
