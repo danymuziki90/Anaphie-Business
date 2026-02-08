@@ -758,7 +758,8 @@ En savoir plus : https://anaphie-business.com">
                     <p class="text-white-50 small">
                         <strong>🇨🇩 Kinshasa, RDC</strong><br>
                         <i class="fas fa-location-dot me-2"></i>Av. LOADI, Quartier WENZE, Commune de KITAMBO<br>
-                        <i class="fas fa-phone me-2"></i><strong>RDC :</strong> +243 811 797 202<br><br>
+                        <i class="fas fa-phone me-2"></i><strong>RDC :</strong> +243 811 797 202<br>
+                        <i class="fas fa-envelope me-2"></i><strong>Email :</strong> contact@anaphiebusiness.com<br><br>
                         <strong>🇦🇪 Dubaï, UAE</strong><br>
                         <i class="fas fa-location-dot me-2"></i>SSA SEA CARGO/ HAYAT PARKING DEIRA: MARQUE/ANAPHIE-STEVEN<br>
                         <i class="fas fa-phone me-2"></i><strong>UAE :</strong> +971 55 667 6877
@@ -767,7 +768,7 @@ En savoir plus : https://anaphie-business.com">
                         <a href="https://www.facebook.com/anaphiebusiness" target="_blank" title="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="mailto:contact@anaphie-business.com" title="Email">
+                        <a href="mailto:contact@anaphiebusiness.com" title="Email" class="bg-primary p-2 rounded">
                             <i class="fas fa-envelope"></i>
                         </a>
                         <a href="https://wa.me/243811797202" target="_blank" title="WhatsApp">
@@ -985,6 +986,133 @@ En savoir plus : https://anaphie-business.com">
             });
         });
     </script>
-</body>
+    <!-- Force Dropdown Display Solution -->
+    <style>
+        /* Force dropdown to be visible and clickable */
+        #servicesDropdownMenu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background: white !important;
+            border: 2px solid #F2A900 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 8px 25px rgba(242, 169, 0, 0.3) !important;
+            min-width: 250px !important;
+            z-index: 9999 !important;
+            padding: 10px 0 !important;
+            margin: 5px 0 0 0 !important;
+        }
+
+        #servicesDropdownMenu.show {
+            display: block !important;
+        }
+
+        #servicesDropdownMenu .dropdown-link {
+            display: block !important;
+            padding: 12px 20px !important;
+            color: #333 !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid #f0f0f0 !important;
+            background: white !important;
+            font-weight: 500 !important;
+            transition: all 0.2s ease !important;
+        }
+
+        #servicesDropdownMenu .dropdown-link:hover {
+            background: #F2A900 !important;
+            color: white !important;
+        }
+
+        #servicesDropdownMenu .dropdown-link:last-child {
+            border-bottom: none !important;
+        }
+
+        #servicesDropdownMenu .dropdown-link i {
+            margin-right: 10px !important;
+            color: #F2A900 !important;
+        }
+
+        #servicesDropdownMenu .dropdown-link:hover i {
+            color: white !important;
+        }
+
+        /* Mobile specific */
+        @media (max-width: 768px) {
+            #servicesDropdownMenu {
+                position: static !important;
+                margin: 10px 0 0 0 !important;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+            }
+        }
+    </style>
+
+    <!-- Force Dropdown JavaScript -->
+    <script>
+        // Force dropdown to work
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('FORCE DROPDOWN LOADING...');
+            
+            const dropdown = document.getElementById('servicesDropdown');
+            const menu = document.getElementById('servicesDropdownMenu');
+            
+            console.log('Elements found:', dropdown, menu);
+            
+            if (dropdown && menu) {
+                console.log('Setting up FORCE click handler');
+                
+                // Remove all existing listeners
+                const newDropdown = dropdown.cloneNode(true);
+                dropdown.parentNode.replaceChild(newDropdown, dropdown);
+                
+                // Force click handler
+                newDropdown.addEventListener('click', function(e) {
+                    console.log('FORCE DROPDOWN CLICKED!');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('Menu before:', menu.style.display, menu.classList.contains('show'));
+                    
+                    // Force toggle
+                    if (menu.style.display === 'block' || menu.classList.contains('show')) {
+                        menu.style.display = 'none';
+                        menu.classList.remove('show');
+                        newDropdown.querySelector('.dropdown-arrow').textContent = '▼';
+                        console.log('Menu CLOSED');
+                    } else {
+                        menu.style.display = 'block';
+                        menu.classList.add('show');
+                        newDropdown.querySelector('.dropdown-arrow').textContent = '▲';
+                        console.log('Menu OPENED');
+                    }
+                    
+                    console.log('Menu after:', menu.style.display, menu.classList.contains('show'));
+                });
+                
+                // Close when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('#servicesDropdown') && !e.target.closest('#servicesDropdownMenu')) {
+                        menu.style.display = 'none';
+                        menu.classList.remove('show');
+                        newDropdown.querySelector('.dropdown-arrow').textContent = '▼';
+                    }
+                });
+                
+                // Close when clicking links
+                const links = menu.querySelectorAll('.dropdown-link');
+                links.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menu.style.display = 'none';
+                        menu.classList.remove('show');
+                        newDropdown.querySelector('.dropdown-arrow').textContent = '▼';
+                    });
+                });
+                
+                console.log('FORCE DROPDOWN SETUP COMPLETE!');
+            } else {
+                console.error('FORCE DROPDOWN - Elements not found!');
+            }
+        });
+    </script>
 
 </html>
