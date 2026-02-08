@@ -7,7 +7,7 @@
     --primary-color: #F2A900;
     --secondary-color: #F5B041;
     --accent-color: #E6A700;
-    --text-dark: #4a4a4a3d;
+    --text-dark: #000000;
     --text-muted: #555555;
     --text-light: #333333;
     --light-gray: #f8f9fa;
@@ -74,7 +74,7 @@ a:hover {
 .nav-link {
     font-weight: 500;
     transition: color 0.3s ease;
-    color: var(--text-dark) !important;
+    color: #000000 !important;
 }
 
 .nav-link:hover,
@@ -89,7 +89,7 @@ a:hover {
 }
 
 .dropdown-item {
-    color: var(--text-dark);
+    color: #000000 !important;
     transition: all 0.3s ease;
 }
 
