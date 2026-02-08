@@ -72,7 +72,74 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Modern Navigation Styles -->
+    <!-- Bootstrap-Free CSS Reset for Dropdown -->
+    <style>
+        /* Remove all Bootstrap dropdown styles that could conflict */
+        .navbar-nav .dropdown-menu,
+        .navbar-nav .dropdown-toggle,
+        .navbar-nav .dropdown-item,
+        .dropdown-menu,
+        .dropdown-toggle,
+        .dropdown-item,
+        .navbar-collapse .dropdown-menu,
+        [data-bs-toggle="dropdown"],
+        [aria-expanded="true"],
+        [aria-expanded="false"] {
+            all: unset !important;
+            position: static !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            color: inherit !important;
+        }
+        
+        /* Force our custom styles */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static !important;
+                background: white !important;
+                border: 1px solid #e0e0e0 !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.3s ease !important;
+                z-index: 1000 !important;
+                pointer-events: none !important;
+            }
+            
+            .dropdown-menu.show {
+                max-height: 500px !important;
+                pointer-events: auto !important;
+            }
+            
+            .dropdown-link {
+                display: block !important;
+                padding: 12px 20px !important;
+                border-bottom: 1px solid #f0f0f0 !important;
+                background: white !important;
+                color: #333 !important;
+                text-decoration: none !important;
+                cursor: pointer !important;
+            }
+            
+            .dropdown-link:hover {
+                background: #f8f9fa !important;
+                color: #F2A900 !important;
+            }
+            
+            .dropdown-link:last-child {
+                border-bottom: none !important;
+            }
+        }
+    </style>
     <style>
         /* Modern Navigation Styles */
         .modern-nav {
@@ -224,6 +291,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
         }
 
         .dropdown-arrow {
@@ -249,12 +317,14 @@
             transform: translateY(-10px);
             transition: all 0.3s ease;
             z-index: 1001;
+            pointer-events: none;
         }
 
         .dropdown-menu.show {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+            pointer-events: auto;
         }
 
         .dropdown-link {
@@ -357,35 +427,57 @@
                 width: 100%;
                 justify-content: space-between;
                 padding: 15px 20px;
+                cursor: pointer;
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                background: transparent;
+                border: none;
+                outline: none;
             }
 
             .dropdown-menu {
-                position: static;
-                background: transparent;
-                border: none;
-                box-shadow: none;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                padding: 0;
-                margin-top: 10px;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
+                position: static !important;
+                background: white !important;
+                border: 1px solid #e0e0e0 !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                padding: 0 !important;
+                margin: 10px 0 0 0 !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.3s ease !important;
+                z-index: 1000 !important;
+                pointer-events: none;
             }
 
             .dropdown-menu.show {
-                max-height: 500px;
+                max-height: 500px !important;
+                pointer-events: auto !important;
             }
 
             .dropdown-link {
-                padding: 12px 20px;
-                border-bottom: 1px solid #f0f0f0;
-                background: white;
+                display: block !important;
+                padding: 12px 20px !important;
+                border-bottom: 1px solid #f0f0f0 !important;
+                background: white !important;
+                color: #333 !important;
+                text-decoration: none !important;
+                cursor: pointer;
+                transition: background 0.2s ease !important;
             }
 
             .dropdown-link:hover {
-                background: #f8f9fa;
+                background: #f8f9fa !important;
+                color: #F2A900 !important;
+            }
+
+            .dropdown-link:last-child {
+                border-bottom: none !important;
             }
         }
 
@@ -1165,6 +1257,10 @@
             const dropdownMenu = document.getElementById('servicesDropdownMenu');
             const modernNav = document.getElementById('modernNav');
 
+            // DEBUG: Log elements
+            console.log('Dropdown Toggle:', dropdownToggle);
+            console.log('Dropdown Menu:', dropdownMenu);
+
             // Mobile Menu Toggle
             if (navToggle && navMenu) {
                 navToggle.addEventListener('click', function() {
@@ -1201,43 +1297,49 @@
                 });
             });
 
-            // Dropdown Toggle
+            // Dropdown Toggle - Simplified and more robust
             if (dropdownToggle && dropdownMenu) {
-                dropdownToggle.addEventListener('click', function(e) {
+                console.log('Setting up dropdown event listener');
+                
+                // Remove any existing listeners to prevent duplicates
+                dropdownToggle.removeEventListener('click', handleDropdownClick);
+                
+                // Add the click handler
+                function handleDropdownClick(e) {
+                    console.log('Dropdown clicked!');
                     e.preventDefault();
                     e.stopPropagation();
                     
                     const isOpen = dropdownMenu.classList.contains('show');
-                    
-                    // Close all other dropdowns
-                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                        if (menu !== dropdownMenu) {
-                            menu.classList.remove('show');
-                        }
-                    });
+                    console.log('Dropdown is open:', isOpen);
                     
                     // Toggle current dropdown
-                    dropdownMenu.classList.toggle('show');
-                    
-                    // Rotate arrow
-                    const arrow = dropdownToggle.querySelector('.dropdown-arrow');
-                    if (arrow) {
-                        arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                    if (isOpen) {
+                        dropdownMenu.classList.remove('show');
+                        dropdownToggle.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+                    } else {
+                        dropdownMenu.classList.add('show');
+                        dropdownToggle.querySelector('.dropdown-arrow').style.transform = 'rotate(180deg)';
                     }
-                });
+                    
+                    console.log('Dropdown toggled, now has show class:', dropdownMenu.classList.contains('show'));
+                }
+                
+                dropdownToggle.addEventListener('click', handleDropdownClick);
+            } else {
+                console.error('Dropdown elements not found!');
+                console.log('dropdownToggle:', dropdownToggle);
+                console.log('dropdownMenu:', dropdownMenu);
             }
 
             // Close dropdowns when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                        menu.classList.remove('show');
-                    });
-                    
-                    // Reset all arrows
-                    document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+                    dropdownMenu.classList.remove('show');
+                    const arrow = dropdownToggle.querySelector('.dropdown-arrow');
+                    if (arrow) {
                         arrow.style.transform = 'rotate(0deg)';
-                    });
+                    }
                 }
             });
 
@@ -1468,6 +1570,97 @@
                     overlay.style.opacity = '1';
                 });
             }
+        });
+    </script>
+
+    <!-- Mobile-Specific Dropdown Script - Bootstrap-Free -->
+    <script>
+        // Mobile dropdown handler - completely isolated from Bootstrap
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Mobile dropdown script loading...');
+            
+            // Wait for DOM to be fully loaded
+            setTimeout(function() {
+                // Find dropdown elements
+                const servicesDropdown = document.getElementById('servicesDropdown');
+                const servicesDropdownMenu = document.getElementById('servicesDropdownMenu');
+                
+                console.log('Mobile - Found elements:', { servicesDropdown, servicesDropdownMenu });
+                
+                if (servicesDropdown && servicesDropdownMenu) {
+                    console.log('Mobile - Setting up click listener');
+                    
+                    // Remove any existing event listeners
+                    const newDropdown = servicesDropdown.cloneNode(true);
+                    servicesDropdown.parentNode.replaceChild(newDropdown, servicesDropdown);
+                    
+                    // Add click handler to the cloned element
+                    newDropdown.addEventListener('click', function(e) {
+                        console.log('Mobile - Dropdown clicked!');
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Toggle dropdown visibility
+                        const isHidden = servicesDropdownMenu.style.maxHeight === '0px' || 
+                                       servicesDropdownMenu.style.maxHeight === '';
+                        
+                        if (isHidden) {
+                            console.log('Mobile - Opening dropdown');
+                            servicesDropdownMenu.style.maxHeight = '500px';
+                            servicesDropdownMenu.style.display = 'block';
+                            servicesDropdownMenu.classList.add('show');
+                            
+                            // Rotate arrow
+                            const arrow = newDropdown.querySelector('.dropdown-arrow');
+                            if (arrow) {
+                                arrow.style.transform = 'rotate(180deg)';
+                            }
+                        } else {
+                            console.log('Mobile - Closing dropdown');
+                            servicesDropdownMenu.style.maxHeight = '0px';
+                            servicesDropdownMenu.classList.remove('show');
+                            
+                            // Reset arrow
+                            const arrow = newDropdown.querySelector('.dropdown-arrow');
+                            if (arrow) {
+                                arrow.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+                    
+                    // Close dropdown when clicking on links
+                    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+                    dropdownLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            console.log('Mobile - Link clicked, closing dropdown');
+                            servicesDropdownMenu.style.maxHeight = '0px';
+                            servicesDropdownMenu.classList.remove('show');
+                            
+                            const arrow = newDropdown.querySelector('.dropdown-arrow');
+                            if (arrow) {
+                                arrow.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (!e.target.closest('.dropdown') && !e.target.closest('.nav-menu')) {
+                            servicesDropdownMenu.style.maxHeight = '0px';
+                            servicesDropdownMenu.classList.remove('show');
+                            
+                            const arrow = newDropdown.querySelector('.dropdown-arrow');
+                            if (arrow) {
+                                arrow.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+                    
+                    console.log('Mobile - Dropdown setup complete!');
+                } else {
+                    console.error('Mobile - Could not find dropdown elements');
+                }
+            }, 100); // Small delay to ensure DOM is ready
         });
     </script>
 </body>
