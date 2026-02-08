@@ -21,102 +21,409 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     
-    <!-- Mobile Dropdown Fix Styles -->
+    <!-- Modern Navigation Styles -->
     <style>
-        @media (max-width: 991.98px) {
-            /* Dropdown styles for mobile */
-            .navbar-nav .dropdown-menu {
-                position: absolute !important;
-                background: white !important;
-                border: 1px solid #dee2e6 !important;
-                border-radius: 0.375rem !important;
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-                margin-top: 0.5rem !important;
-                min-width: 200px !important;
-                z-index: 1000 !important;
-                display: none !important;
-                left: 0 !important;
-                right: auto !important;
+        /* Modern Navigation Styles */
+        .modern-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #F2A900;
+        }
+
+        .brand-logo {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #F2A900;
+            transition: all 0.3s ease;
+        }
+
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hamburger-line {
+            width: 100%;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover .hamburger-line:nth-child(1) {
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle:hover .hamburger-line:nth-child(3) {
+            transform: translateY(2px);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #F2A900;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #F2A900;
+        }
+
+        .nav-link.active {
+            color: #F2A900;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-toggle:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-link:hover {
+            background: #f8f9fa;
+            color: #F2A900;
+        }
+
+        .dropdown-link i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 15px;
+                height: 70px;
             }
-            
-            .navbar-nav .dropdown-menu.show {
-                display: block !important;
+
+            .nav-brand {
+                font-size: 1.3rem;
             }
-            
-            .navbar-nav .dropdown-item {
-                color: #212529 !important;
-                padding: 0.5rem 1rem !important;
-                transition: all 0.2s ease !important;
+
+            .brand-logo {
+                height: 40px;
+                width: 40px;
+                margin-right: 12px;
             }
-            
-            .navbar-nav .dropdown-item:hover {
-                background-color: #f8f9fa !important;
-                color: #F2A900 !important;
+
+            .brand-text {
+                font-size: 1.2rem;
             }
-            
-            .dropdown {
-                position: relative !important;
+
+            .nav-toggle {
+                display: flex;
             }
-            
-            /* Fix for dropdown inside collapsed navbar */
-            .navbar-collapse.show .navbar-nav .dropdown-menu {
-                position: absolute !important;
-                top: 100% !important;
-                left: 0 !important;
-                right: auto !important;
-                z-index: 1050 !important;
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
             }
-            
-            /* Ensure dropdown is above other mobile menu items */
-            .navbar-collapse.show {
-                position: relative !important;
+
+            .nav-menu.active {
+                transform: translateX(0);
             }
-            
-            /* Fix dropdown toggle positioning */
-            .navbar-nav .dropdown-toggle {
-                position: relative !important;
+
+            .nav-list {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
             }
-            
-            /* Prevent dropdown from being hidden */
-            .navbar-collapse.show .dropdown-menu {
-                visibility: visible !important;
-                opacity: 1 !important;
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
             }
+
+            .nav-link {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link::after {
+                display: none;
+            }
+
+            .nav-link:hover {
+                background: #f8f9fa;
+                color: #F2A900;
+            }
+
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+                padding: 15px 20px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding: 0;
+                margin-top: 10px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .dropdown-menu.show {
+                max-height: 500px;
+            }
+
+            .dropdown-link {
+                padding: 12px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                background: white;
+            }
+
+            .dropdown-link:hover {
+                background: #f8f9fa;
+            }
+        }
+
+        /* Scrollbar Styling */
+        .nav-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .nav-menu::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .nav-menu::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        .nav-menu::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Sticky Navigation Effect */
+        .modern-nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Active State Animation */
+        .nav-link.active {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 
 <body>
-    <!-- NAVIGATION -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="../index.html">
-                <img src="../img/logo.jpg" alt="ANAPHIE BUSINESS" height="60" class="me-2">ANAPHIE BUSINESS
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <!-- MODERN NAVIGATION -->
+    <nav class="modern-nav" id="modernNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <img src="../img/logo.jpg" alt="ANAPHIE BUSINESS" class="brand-logo">
+                    <span class="brand-text">ANAPHIE BUSINESS</span>
+                </a>
+            </div>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../a-propos.html">À propos</a></li>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../a-propos.html" class="nav-link">À propos</a>
+                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos services</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="fret-aerien.html"><i class="fas fa-plane me-2"></i>Fret
-                                    aérien</a></li>
-                            <li><a class="dropdown-item" href="fret-maritime.html"><i class="fas fa-ship me-2"></i>Fret
-                                    maritime</a></li>
-                            <li><a class="dropdown-item" href="import-vehicules.html"><i
-                                        class="fas fa-car me-2"></i>Import véhicules</a></li>
-                            <li><a class="dropdown-item" href="materiaux-equipements.html"><i
-                                        class="fas fa-cube me-2"></i>Matériaux & équipements</a></li>
+                        <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown">
+                            Nos services
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu" id="servicesDropdownMenu">
+                            <li><a href="fret-aerien.html" class="dropdown-link"><i class="fas fa-plane"></i>Fret aérien</a></li>
+                            <li><a href="fret-maritime.html" class="dropdown-link"><i class="fas fa-ship"></i>Fret maritime</a></li>
+                            <li><a href="import-vehicules.html" class="dropdown-link"><i class="fas fa-car"></i>Import véhicules</a></li>
+                            <li><a href="materiaux-equipements.html" class="dropdown-link"><i class="fas fa-cube"></i>Matériaux & équipements</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="../zones-desservies.html">Zones desservies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pourquoi-nous.html">Pourquoi nous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a href="../zones-desservies.html" class="nav-link">Zones desservies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pourquoi-nous.html" class="nav-link">Pourquoi nous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../faq.html" class="nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../contact.html" class="nav-link">Contact</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -131,7 +438,7 @@
                     background-repeat: no-repeat;
                     min-height: 350px;
                     position: relative;
-                    overflow: hidden;">
+                    overflow: hidden; padding-top: 80px;">
             <h1 class="fw-bold" style="color: white !important; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
                 <i class="fas fa-ship me-2"></i>Fret maritime
             </h1>
@@ -374,110 +681,194 @@
     <!-- Toast Container for Notifications -->
     <div class="toast-container" id="toastContainer"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
-    <!-- Interactive Features JS -->
-    <script src="../js/interactive.js"></script>
-    
-    <!-- Dropdown Initialization Script -->
-    <script src="../js/dropdown-init.js"></script>
-    
-    <!-- Mobile Dropdown Fix Script -->
+    <!-- Modern Navigation JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fix for mobile dropdown - improved version
-            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-            
-            dropdownToggles.forEach(function(toggle) {
-                // Remove Bootstrap data attributes to prevent conflicts
-                toggle.removeAttribute('data-bs-toggle');
-                toggle.removeAttribute('data-bs-dropdown');
-                
-                toggle.addEventListener('click', function(e) {
+            // ==========================================
+            // MODERN NAVIGATION FUNCTIONALITY
+            // ==========================================
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const dropdownToggle = document.getElementById('servicesDropdown');
+            const dropdownMenu = document.getElementById('servicesDropdownMenu');
+            const modernNav = document.getElementById('modernNav');
+
+            // Mobile Menu Toggle
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                    
+                    // Animate hamburger lines
+                    const lines = navToggle.querySelectorAll('.hamburger-line');
+                    if (navMenu.classList.contains('active')) {
+                        lines[0].style.transform = 'rotate(45deg) translateY(8px)';
+                        lines[1].style.opacity = '0';
+                        lines[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+                    } else {
+                        lines[0].style.transform = 'none';
+                        lines[1].style.opacity = '1';
+                        lines[2].style.transform = 'none';
+                    }
+                });
+            }
+
+            // Close mobile menu when clicking on links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        
+                        // Reset hamburger animation
+                        const lines = navToggle.querySelectorAll('.hamburger-line');
+                        lines[0].style.transform = 'none';
+                        lines[1].style.opacity = '1';
+                        lines[2].style.transform = 'none';
+                    }
+                });
+            });
+
+            // Dropdown Toggle
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
                     
-                    const dropdownMenu = this.nextElementSibling;
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    const isOpen = dropdownMenu.classList.contains('show');
                     
                     // Close all other dropdowns
-                    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
                         if (menu !== dropdownMenu) {
                             menu.classList.remove('show');
-                            menu.style.display = 'none';
-                            menu.previousElementSibling.setAttribute('aria-expanded', 'false');
                         }
                     });
                     
                     // Toggle current dropdown
-                    if (isExpanded) {
-                        dropdownMenu.classList.remove('show');
-                        dropdownMenu.style.display = 'none';
-                        this.setAttribute('aria-expanded', 'false');
-                    } else {
-                        dropdownMenu.classList.add('show');
-                        dropdownMenu.style.display = 'block';
-                        this.setAttribute('aria-expanded', 'true');
-                        
-                        // Position dropdown correctly for mobile
-                        if (window.innerWidth <= 991.98) {
-                            const rect = this.getBoundingClientRect();
-                            const navbarCollapse = this.closest('.navbar-collapse');
-                            if (navbarCollapse) {
-                                const navbarRect = navbarCollapse.getBoundingClientRect();
-                                dropdownMenu.style.position = 'absolute';
-                                dropdownMenu.style.top = (rect.bottom - navbarRect.top) + 'px';
-                                dropdownMenu.style.left = '0';
-                                dropdownMenu.style.right = 'auto';
-                                dropdownMenu.style.zIndex = '1050';
-                            }
-                        }
+                    dropdownMenu.classList.toggle('show');
+                    
+                    // Rotate arrow
+                    const arrow = dropdownToggle.querySelector('.dropdown-arrow');
+                    if (arrow) {
+                        arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
                     }
                 });
-            });
-            
-            // Close dropdown when clicking outside
+            }
+
+            // Close dropdowns when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
                         menu.classList.remove('show');
-                        menu.style.display = 'none';
-                        menu.previousElementSibling.setAttribute('aria-expanded', 'false');
+                    });
+                    
+                    // Reset all arrows
+                    document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+                        arrow.style.transform = 'rotate(0deg)';
                     });
                 }
             });
-            
-            // Close dropdown when clicking on dropdown items
-            document.querySelectorAll('.dropdown-item').forEach(function(item) {
-                item.addEventListener('click', function() {
-                    const dropdownMenu = this.closest('.dropdown-menu');
-                    if (dropdownMenu) {
-                        dropdownMenu.classList.remove('show');
-                        dropdownMenu.style.display = 'none';
-                        dropdownMenu.previousElementSibling.setAttribute('aria-expanded', 'false');
+
+            // Close dropdowns when clicking on dropdown items
+            document.querySelectorAll('.dropdown-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdownMenu.classList.remove('show');
+                    const arrow = dropdownToggle.querySelector('.dropdown-arrow');
+                    if (arrow) {
+                        arrow.style.transform = 'rotate(0deg)';
                     }
                 });
             });
-            
-            // Close dropdown when navbar is collapsing
-            const navbar = document.querySelector('.navbar-collapse');
-            if (navbar) {
-                const observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mutation) {
-                        if (mutation.attributeName === 'class') {
-                            if (!navbar.classList.contains('show')) {
-                                // Close all dropdowns when navbar collapses
-                                document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                                    menu.classList.remove('show');
-                                    menu.style.display = 'none';
-                                    menu.previousElementSibling.setAttribute('aria-expanded', 'false');
-                                });
-                            }
-                        }
-                    });
+
+            // Scroll Effect
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (modernNav) {
+                    if (scrollTop > 100) {
+                        modernNav.classList.add('scrolled');
+                    } else {
+                        modernNav.classList.remove('scrolled');
+                    }
+                    
+                    // Hide/show on scroll
+                    if (scrollTop > lastScrollTop && scrollTop > 300) {
+                        modernNav.style.transform = 'translateY(-100%)';
+                    } else {
+                        modernNav.style.transform = 'translateY(0)';
+                    }
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // Active Link Management
+            function setActiveLink() {
+                const currentPath = window.location.pathname;
+                const currentPage = currentPath.split('/').pop() || 'index.html';
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href');
+                    
+                    if (href === currentPage || 
+                        (currentPage === '' && href === '../index.html') ||
+                        (currentPage === 'index.html' && href === '../index.html')) {
+                        link.classList.add('active');
+                    }
                 });
-                observer.observe(navbar, { attributes: true });
             }
+
+            setActiveLink();
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Keyboard Navigation
+            document.addEventListener('keydown', function(e) {
+                // ESC key closes mobile menu
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    
+                    // Reset hamburger animation
+                    const lines = navToggle.querySelectorAll('.hamburger-line');
+                    lines[0].style.transform = 'none';
+                    lines[1].style.opacity = '1';
+                    lines[2].style.transform = 'none';
+                }
+            });
+
+            // Resize Handler
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    if (window.innerWidth > 768) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        
+                        // Reset hamburger animation
+                        const lines = navToggle.querySelectorAll('.hamburger-line');
+                        lines[0].style.transform = 'none';
+                        lines[1].style.opacity = '1';
+                        lines[2].style.transform = 'none';
+                    }
+                }, 250);
+            });
         });
     </script>
 </body>
