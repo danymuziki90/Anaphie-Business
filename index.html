@@ -183,62 +183,134 @@
     </section>
 
     <!-- NOS ZONES DESSERVIES -->
-    <section class="zones-preview py-5 bg-light">
-        <div class="container">
+    <section class="zones-preview py-5 bg-light position-relative overflow-hidden">
+        <!-- Éléments décoratifs flottants -->
+        <div class="zone-floating-element zone-float-1">
+            <i class="fas fa-globe"></i>
+        </div>
+        <div class="zone-floating-element zone-float-2">
+            <i class="fas fa-shipping-fast"></i>
+        </div>
+        <div class="zone-floating-element zone-float-3">
+            <i class="fas fa-map-marked-alt"></i>
+        </div>
+        
+        <!-- Particules animées -->
+        <div class="zone-particles">
+            <div class="zone-particle zone-particle-1"></div>
+            <div class="zone-particle zone-particle-2"></div>
+            <div class="zone-particle zone-particle-3"></div>
+            <div class="zone-particle zone-particle-4"></div>
+        </div>
+        
+        <div class="container position-relative">
             <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3">Nos zones desservies</h2>
-                <p class="lead text-muted">Présence stratégique pour un service optimal</p>
+                <div class="zone-badge mb-4 animate__animated animate__fadeInDown">
+                    <span class="zone-badge-content">
+                        <i class="fas fa-globe-americas me-2"></i>Couverture Mondiale
+                    </span>
+                </div>
+                <h2 class="fw-bold mb-3 display-4 animate__animated animate__fadeInUp">Nos zones desservies</h2>
+                <p class="lead text-muted animate__animated animate__fadeInUp animate__delay-1s">Présence stratégique pour un service optimal</p>
             </div>
             
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="zone-card text-center p-4 h-100">
-                        <div class="zone-icon mb-3">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="zone-card text-center p-4 h-100 animate__animated animate__fadeInUp animate__delay-1s">
+                        <div class="zone-icon-wrapper mb-4">
+                            <div class="zone-icon-bg">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="zone-icon-pulse"></div>
                         </div>
-                        <h4 class="fw-bold mb-3">Kinshasa – RDC</h4>
+                        <div class="zone-flag mb-3">
+                            <span class="flag-emoji">🇨🇩</span>
+                            <h4 class="fw-bold mb-0">Kinshasa – RDC</h4>
+                        </div>
                         <p class="text-muted mb-3">
                             Siège principal, dédouanement, stockage et livraison locale. Équipe expérimentée en logistique RDC.
                         </p>
-                        <ul class="list-unstyled text-start small text-muted">
-                            <li><i class="fas fa-check text-success me-2"></i>Dédouanement rapide</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Livraison locale</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Support 24/7</li>
-                        </ul>
+                        <div class="zone-features">
+                            <div class="zone-feature-item">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Dédouanement rapide</span>
+                            </div>
+                            <div class="zone-feature-item">
+                                <i class="fas fa-truck text-primary me-2"></i>
+                                <span>Livraison locale</span>
+                            </div>
+                            <div class="zone-feature-item">
+                                <i class="fas fa-headset text-info me-2"></i>
+                                <span>Support 24/7</span>
+                            </div>
+                        </div>
+                        <div class="zone-card-shine"></div>
                     </div>
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="zone-card text-center p-4 h-100">
-                        <div class="zone-icon mb-3">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="zone-card text-center p-4 h-100 animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="zone-icon-wrapper mb-4">
+                            <div class="zone-icon-bg">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="zone-icon-pulse"></div>
                         </div>
-                        <h4 class="fw-bold mb-3">Dubaï – UAE</h4>
+                        <div class="zone-flag mb-3">
+                            <span class="flag-emoji">🇦🇪</span>
+                            <h4 class="fw-bold mb-0">Dubaï – UAE</h4>
+                        </div>
                         <p class="text-muted mb-3">
                             Hub d'achat et expédition. Partenariats directs avec fournisseurs. Traitement rapide des commandes.
                         </p>
-                        <ul class="list-unstyled text-start small text-muted">
-                            <li><i class="fas fa-check text-success me-2"></i>Achat direct</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Inspection qualité</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Emballage professionnel</li>
-                        </ul>
+                        <div class="zone-features">
+                            <div class="zone-feature-item">
+                                <i class="fas fa-shopping-cart text-success me-2"></i>
+                                <span>Achat direct</span>
+                            </div>
+                            <div class="zone-feature-item">
+                                <i class="fas fa-search text-primary me-2"></i>
+                                <span>Inspection qualité</span>
+                            </div>
+                            <div class="zone-feature-item">
+                                <i class="fas fa-box text-info me-2"></i>
+                                <span>Emballage professionnel</span>
+                            </div>
+                        </div>
+                        <div class="zone-card-shine"></div>
                     </div>
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="zone-card text-center p-4 h-100">
-                        <div class="zone-icon mb-3">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="zone-card text-center p-4 h-100 animate__animated animate__fadeInUp animate__delay-3s">
+                        <div class="zone-icon-wrapper mb-4">
+                            <div class="zone-icon-bg">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="zone-icon-pulse"></div>
                         </div>
-                        <h4 class="fw-bold mb-3">Matadi – RDC</h4>
+                        <div class="zone-flag mb-3">
+                            <span class="flag-emoji">🇨🇩</span>
+                            <h4 class="fw-bold mb-0">Matadi – RDC</h4>
+                        </div>
                         <p class="text-muted mb-3">
                             Port principal. Expertise portuaire, douanes et manutention. Liaison rapide vers Kinshasa.
                         </p>
-                        <ul class="list-unstyled text-start small text-muted">
-                            <li><i class="fas fa-check text-success me-2"></i>Gestion portuaire</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Dédouanement maritime</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Transport terrestre</li>
-                        </ul>
+                        <div class="zone-features">
+                            <div class="zone-feature-item">
+                                <i class="fas fa-ship text-success me-2"></i>
+                                <span>Gestion portuaire</span>
+                            </div>
+                            <div class="zone-feature-item">
+                                <i class="fas fa-file-invoice text-primary me-2"></i>
+                                <span>Dédouanement maritime</span>
+                            </div>
+                            <div class="zone-feature-item">
+                                <i class="fas fa-route text-info me-2"></i>
+                                <span>Transport terrestre</span>
+                            </div>
+                        </div>
+                        <div class="zone-card-shine"></div>
                     </div>
                 </div>
             </div>
