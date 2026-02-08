@@ -2161,103 +2161,303 @@ a:hover {
     }
 }
 
-/* ---- ZONES CARDS ---- */
-.zone-card {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+/* ---- ZONES CARDS - DESIGN 2026 ---- */
+.zones-preview {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     position: relative;
     overflow: hidden;
 }
 
-.zone-card:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary-color);
-    transform: translateY(-5px);
+/* Badge moderne */
+.zone-badge {
+    display: inline-block;
+    animation: zone-float 3s ease-in-out infinite;
 }
 
-.zone-icon {
-    font-size: 4rem;
-    color: var(--accent-color);
-    text-align: center;
-    margin-bottom: 1rem;
+.zone-badge-content {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 25px rgba(242, 169, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+}
+
+/* Éléments flottants */
+.zone-floating-element {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(242, 169, 0, 0.1);
+    animation: zone-float 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+.zone-float-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.zone-float-2 { top: 20%; right: 8%; animation-delay: 2s; }
+.zone-float-3 { bottom: 15%; left: 10%; animation-delay: 4s; }
+
+/* Particules */
+.zone-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.zone-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: zone-particle-float 8s linear infinite;
+}
+
+.zone-particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.zone-particle-2 { top: 60%; right: 15%; animation-delay: 2s; }
+.zone-particle-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
+.zone-particle-4 { top: 40%; right: 25%; animation-delay: 6s; }
+
+/* Cartes modernes */
+.zone-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(242, 169, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.zone-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(242, 169, 0, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* Icônes avancées */
+.zone-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.zone-icon-bg {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
     transition: all 0.3s ease;
 }
 
-.zone-card:hover .zone-icon {
-    color: var(--primary-color);
+.zone-card:hover .zone-icon-bg {
     transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(242, 169, 0, 0.4);
 }
 
-.zone-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+.zone-icon-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: zone-pulse 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Flags et titres */
+.zone-flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.flag-emoji {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.zone-card h4 {
+    color: var(--text-light);
+    font-weight: 700;
+    margin: 0;
     transition: color 0.3s ease;
 }
 
-.zone-card:hover h3 {
-    color: var(--secondary-color);
+.zone-card:hover h4 {
+    color: var(--primary-color);
 }
 
-.zone-card ul {
-    text-align: left;
+/* Features modernes */
+.zone-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.zone-card li {
-    margin-bottom: 0.5rem;
+.zone-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(242, 169, 0, 0.05);
+    border-radius: 10px;
     transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
-.zone-card:hover li {
-    transform: translateX(3px);
+.zone-feature-item:hover {
+    background: rgba(242, 169, 0, 0.1);
+    transform: translateX(5px);
 }
 
-/* Responsive Design pour zones */
+/* Effet shine sur cartes */
+.zone-card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.zone-card:hover .zone-card-shine {
+    left: 100%;
+}
+
+/* Bouton CTA moderne */
+.btn-zone-cta {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 40px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 30px rgba(242, 169, 0, 0.3);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-zone-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(242, 169, 0, 0.4);
+}
+
+.btn-zone-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.btn-zone-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-zone-cta:hover .btn-zone-shine {
+    left: 100%;
+}
+
+.btn-zone-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.btn-zone-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: btn-particle-float 3s ease-out infinite;
+}
+
+.btn-zone-particle:nth-child(1) { left: 20%; animation-delay: 0s; }
+.btn-zone-particle:nth-child(2) { left: 50%; animation-delay: 1s; }
+.btn-zone-particle:nth-child(3) { left: 80%; animation-delay: 2s; }
+
+.btn-zone-cta:hover .btn-zone-particle {
+    opacity: 1;
+}
+
+/* Animations 2026 */
+@keyframes zone-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes zone-pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes zone-particle-float {
+    0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes btn-particle-float {
+    0% { transform: translateY(0px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-30px); opacity: 0; }
+}
+
+/* Responsive Design 2026 */
 @media (max-width: 768px) {
-    .zone-card {
-        margin-bottom: 1.5rem;
-        padding: 1.5rem !important;
-    }
-    
-    .zone-icon {
-        font-size: 3rem;
-    }
-    
-    .zone-card h3 {
-        font-size: 1.1rem;
-    }
-    
-    .zone-card p {
-        font-size: 0.9rem;
-    }
+    .zone-floating-element { font-size: 2rem; }
+    .zone-icon-bg { width: 60px; height: 60px; font-size: 1.5rem; }
+    .zone-icon-pulse { width: 60px; height: 60px; }
+    .flag-emoji { font-size: 1.5rem; }
+    .zone-feature-item { font-size: 0.8rem; padding: 6px 10px; }
 }
 
 @media (max-width: 576px) {
-    .zone-card {
-        padding: 1.25rem !important;
-        border-radius: 10px;
-    }
-    
-    .zone-icon {
-        font-size: 2.5rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .zone-card h3 {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .zone-card p {
-        font-size: 0.85rem;
-        line-height: 1.5;
-    }
-    
-    .zone-card li {
-        font-size: 0.8rem;
-    }
+    .zone-floating-element { font-size: 1.5rem; }
+    .zone-icon-bg { width: 50px; height: 50px; font-size: 1.2rem; }
+    .zone-icon-pulse { width: 50px; height: 50px; }
+    .flag-emoji { font-size: 1.2rem; }
+    .zone-feature-item { font-size: 0.75rem; padding: 5px 8px; gap: 6px; }
+    .btn-zone-cta { padding: 15px 30px; font-size: 1rem; }
 }
 
 /* ---- VALUE CARDS ---- */
