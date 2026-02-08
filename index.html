@@ -1590,36 +1590,7 @@
         }
     </style>
 
-    <!-- Test Button for Dropdown Debug -->
-    <button onclick="testDropdown()" style="position: fixed; top: 100px; right: 20px; background: red; color: white; padding: 10px; z-index: 9999; border: none; cursor: pointer;">
-        TEST DROPDOWN
-    </button>
-
-    <!-- Force Dropdown JavaScript -->
-    <script>
-        // Test function
-        function testDropdown() {
-            console.log('TEST BUTTON CLICKED!');
-            const dropdown = document.getElementById('servicesDropdown');
-            const menu = document.getElementById('servicesDropdownMenu');
-            
-            console.log('Test - dropdown:', dropdown);
-            console.log('Test - menu:', menu);
-            console.log('Test - menu styles:', menu ? menu.style.cssText : 'not found');
-            
-            if (dropdown && menu) {
-                console.log('Elements found! Testing direct toggle...');
-                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-                menu.classList.toggle('show');
-                console.log('Menu display set to:', menu.style.display);
-                console.log('Menu show class:', menu.classList.contains('show'));
-            } else {
-                console.error('Elements NOT found!');
-            }
-        }
-        
-        // Force dropdown to work
-        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function() {
             console.log('FORCE DROPDOWN LOADING...');
             
             const dropdown = document.getElementById('servicesDropdown');
