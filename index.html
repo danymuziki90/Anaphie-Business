@@ -58,14 +58,41 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Pull-to-Refresh Indicator -->
+    <div class="pull-to-refresh" id="pullToRefresh">
+        <i class="fas fa-sync-alt"></i>
+        <span>Tirer pour rafraîchir</span>
+    </div>
+
+    <!-- Mobile Breadcrumb -->
+    <nav class="mobile-breadcrumb">
+        <span>Accueil</span> > <span>Services</span>
+    </nav>
+
+    <!-- Mobile Search Bar -->
+    <div class="mobile-search">
+        <input type="text" class="search-input" placeholder="Rechercher un service...">
+    </div>
+
+    <!-- Toast Container for Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Floating Action Button for Notifications -->
+    <button class="fab-notification" id="fabNotification" onclick="showNotification('info', 'Besoin d\'aide ?', 'Notre équipe est disponible 24/7 pour vous assister.')">
+        <i class="fas fa-bell"></i>
+        <div class="notification-badge" id="notificationBadge">1</div>
+    </button>
+
     <!-- NAVIGATION -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand fw-bold text-primary" href="index.html">
                 <img src="img/logo.jpg" alt="ANAPHIE BUSINESS" height="60" class="me-2">ANAPHIE BUSINESS
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" id="mobileToggler">
+                <span class="navbar-toggler-icon">
+                    <span></span>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -117,10 +144,10 @@
                             Présence stratégique à Kinshasa, Dubaï et Matadi. Nous accompagnons particuliers, entreprises et ONG dans toutes leurs opérations logistiques.
                         </p>
                         <div class="d-grid gap-3 d-md-flex animate__animated animate__fadeInUp animate__delay-3s">
-                            <a href="contact.html" class="btn btn-warning btn-lg px-4 py-3">
+                            <a href="contact.html" class="btn btn-warning btn-lg px-4 py-3 btn-modern" onclick="simulateLoading(this, 'contact.html')">
                                 <i class="fas fa-file-alt me-2"></i>Demander un devis gratuit
                             </a>
-                            <a href="contact.html" class="btn btn-outline-light btn-lg px-4 py-3">
+                            <a href="contact.html" class="btn btn-outline-light btn-lg px-4 py-3 btn-modern" onclick="simulateLoading(this, 'contact.html')">
                                 <i class="fas fa-comments me-2"></i>Parler à un expert
                             </a>
                         </div>
@@ -160,7 +187,11 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="service-card p-4 h-100 animate__animated animate__fadeInUp animate__delay-1s">
                         <div class="service-image mb-3">
-                            <img src="img/Fret Aérien Express.jpg" alt="Fret Aérien Express - ANAPHIE BUSINESS" class="service-img img-fluid rounded">
+                            <img src="img/placeholder.jpg" 
+                                 data-src="img/Fret Aérien Express.jpg" 
+                                 alt="Fret Aérien Express - ANAPHIE BUSINESS" 
+                                 class="service-img img-fluid rounded"
+                                 loading="lazy">
                         </div>
                         <h3 class="h5 fw-bold mb-2">Fret Aérien Express</h3>
                         <p class="text-muted small mb-3">
@@ -173,7 +204,11 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="service-card p-4 h-100 animate__animated animate__fadeInUp animate__delay-2s">
                         <div class="service-image mb-3">
-                            <img src="img/transport-logistics-concept.jpg" alt="Fret Maritime - ANAPHIE BUSINESS" class="service-img img-fluid rounded">
+                            <img src="img/placeholder.jpg" 
+                                 data-src="img/transport-logistics-concept.jpg" 
+                                 alt="Fret Maritime - ANAPHIE BUSINESS" 
+                                 class="service-img img-fluid rounded"
+                                 loading="lazy">
                         </div>
                         <h3 class="h5 fw-bold mb-2">Fret Maritime</h3>
                         <p class="text-muted small mb-3">
@@ -186,7 +221,11 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="service-card p-4 h-100 animate__animated animate__fadeInUp animate__delay-3s">
                         <div class="service-image mb-3">
-                            <img src="img/buy car.jpg" alt="Import Véhicules & Dédouanement - ANAPHIE BUSINESS" class="service-img img-fluid rounded">
+                            <img src="img/placeholder.jpg" 
+                                 data-src="img/buy car.jpg" 
+                                 alt="Import Véhicules & Dédouanement - ANAPHIE BUSINESS" 
+                                 class="service-img img-fluid rounded"
+                                 loading="lazy">
                         </div>
                         <h3 class="h5 fw-bold mb-2">Import Véhicules & Dédouanement</h3>
                         <p class="text-muted small mb-3">
@@ -199,7 +238,11 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="service-card p-4 h-100 animate__animated animate__fadeInUp animate__delay-4s">
                         <div class="service-image mb-3">
-                            <img src="img/worker-cuts-iron-with-tool.jpg" alt="Matériaux & Équipements - ANAPHIE BUSINESS" class="service-img img-fluid rounded">
+                            <img src="img/placeholder.jpg" 
+                                 data-src="img/worker-cuts-iron-with-tool.jpg" 
+                                 alt="Matériaux & Équipements - ANAPHIE BUSINESS" 
+                                 class="service-img img-fluid rounded"
+                                 loading="lazy">
                         </div>
                         <h3 class="h5 fw-bold mb-2">Matériaux & Équipements</h3>
                         <p class="text-muted small mb-3">
@@ -509,62 +552,89 @@
     <section class="testimonials-section py-5 bg-light">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">Ce que disent nos clients</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card p-4 bg-white rounded">
-                        <div class="stars mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+            
+            <!-- Mobile Swipe Container -->
+            <div class="testimonials-swipe-container">
+                <div class="testimonials-swipe-wrapper">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="testimonial-card p-4 bg-white rounded touch-feedback">
+                                <div class="stars mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text mb-3">
+                                    "Anaphie Business a pris en charge mon importation de véhicules sans aucun problème. Service rapide et professionnel !"
+                                </p>
+                                <div class="testimonial-author">
+                                    <strong>Jean Mbuyu</strong>
+                                    <p class="text-muted small">Kinshasa, RDC</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="testimonial-text mb-3">
-                            "Anaphie Business a pris en charge mon importation de véhicules sans aucun problème. Service rapide et professionnel !"
-                        </p>
-                        <div class="testimonial-author">
-                            <strong>Jean Mbuyu</strong>
-                            <p class="text-muted small">Kinshasa, RDC</p>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="testimonial-card p-4 bg-white rounded touch-feedback">
+                                <div class="stars mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text mb-3">
+                                    "Pour mes envois réguliers Dubaï–Kinshasa, ANAPHIE BUSINESS est mon premier choix. Fiable et rapide !"
+                                </p>
+                                <div class="testimonial-author">
+                                    <strong>Marie Nsumba</strong>
+                                    <p class="text-muted small">Commerçante, Kinshasa</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="testimonial-card p-4 bg-white rounded touch-feedback">
+                                <div class="stars mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text mb-3">
+                                    "Dédouanement sans accroc, livraison à temps. Je recommande vivement à tous les importateurs !"
+                                </p>
+                                <div class="testimonial-author">
+                                    <strong>Ahmed Hassan</strong>
+                                    <p class="text-muted small">Importateur, Dubaï</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card p-4 bg-white rounded">
-                        <div class="stars mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text mb-3">
-                            "Pour mes envois réguliers Dubaï–Kinshasa, ANAPHIE BUSINESS est mon premier choix. Fiable et rapide !"
-                        </p>
-                        <div class="testimonial-author">
-                            <strong>Marie Nsumba</strong>
-                            <p class="text-muted small">Commerçante, Kinshasa</p>
-                        </div>
-                    </div>
+                
+                <!-- Swipe Indicators -->
+                <div class="swipe-indicators">
+                    <div class="swipe-indicator active" onclick="goToTestimonial(0)"></div>
+                    <div class="swipe-indicator" onclick="goToTestimonial(1)"></div>
+                    <div class="swipe-indicator" onclick="goToTestimonial(2)"></div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card p-4 bg-white rounded">
-                        <div class="stars mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text mb-3">
-                            "Dédouanement sans accroc, livraison à temps. Je recommande vivement à tous les importateurs !"
-                        </p>
-                        <div class="testimonial-author">
-                            <strong>Ahmed Hassan</strong>
-                            <p class="text-muted small">Importateur, Dubaï</p>
-                        </div>
-                    </div>
+                
+                <!-- Swipe Navigation -->
+                <button class="swipe-nav prev" onclick="previousTestimonial()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="swipe-nav next" onclick="nextTestimonial()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Swipe Hint -->
+                <div class="swipe-hint">
+                    <i class="fas fa-hand-point-left"></i>
+                    <span>Glisser pour voir plus</span>
                 </div>
             </div>
         </div>
@@ -624,12 +694,12 @@
                 
                 <!-- Boutons avec effets améliorés -->
                 <div class="cta-buttons d-grid gap-3 d-md-flex justify-content-center animate__animated animate__fadeInUp animate__delay-3s">
-                    <a href="contact.html" class="btn btn-cta-primary btn-lg btn-modern px-5 py-4 fw-bold">
+                    <a href="contact.html" class="btn btn-cta-primary btn-lg btn-modern px-5 py-4 fw-bold" onclick="simulateLoading(this, 'contact.html')">
                         <i class="fas fa-envelope me-3"></i>
                         <span>Contacter maintenant</span>
                         <div class="btn-shine"></div>
                     </a>
-                    <a href="https://wa.me/243811797202" target="_blank" class="btn btn-cta-secondary btn-lg btn-modern px-5 py-4 fw-bold">
+                    <a href="https://wa.me/243811797202" target="_blank" class="btn btn-cta-secondary btn-lg btn-modern px-5 py-4 fw-bold" onclick="showNotification('success', 'WhatsApp', 'Redirection vers WhatsApp en cours...')">
                         <i class="fab fa-whatsapp me-3"></i>
                         <span>WhatsApp RDC</span>
                         <div class="btn-shine"></div>
@@ -674,12 +744,10 @@
         <div class="container">
             <div class="row g-4 mb-4">
                 <div class="col-md-3 col-sm-6">
-                    <h5 class="fw-bold mb-3">À propos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="a-propos.html" class="text-white-50 text-decoration-none">À propos ANAPHIE</a></li>
-                        <li><a href="pourquoi-nous.html" class="text-white-50 text-decoration-none">Pourquoi nous choisir</a></li>
-                        <li><a href="zones-desservies.html" class="text-white-50 text-decoration-none">Zones desservies</a></li>
-                    </ul>
+                    <h5 class="fw-bold mb-3">ANAPHIE BUSINESS</h5>
+                    <p class="text-white-50 small">
+                        Expert en fret international Dubaï–Kinshasa depuis 2010. Nous spécialisons dans le transport aérien et maritime, le dédouanement, et l'import de véhicules et matériaux. Présence stratégique à Kinshasa, Dubaï et Matadi pour un service logistique complet et fiable.
+                    </p>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h5 class="fw-bold mb-3">Services</h5>
@@ -706,8 +774,14 @@
                         <i class="fas fa-phone me-2"></i><strong>UAE :</strong> +971 55 667 6877
                     </p>
                     <div class="social-links mt-3">
-                        <a href="https://wa.me/243811797202" class="text-white me-3" title="WhatsApp">
-                            <i class="fab fa-whatsapp fa-lg"></i>
+                        <a href="https://www.facebook.com/anaphiebusiness" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="mailto:contact@anaphie-business.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://wa.me/243811797202" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -728,10 +802,44 @@
         </div>
     </footer>
 
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-menu-bar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                    <i class="fas fa-home"></i>
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="a-propos.html">
+                    <i class="fas fa-info-circle"></i>
+                    <span>À propos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="zones-desservies.html">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Zones</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">
+                    <i class="fas fa-phone"></i>
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
+    <!-- Interactive Features JS -->
+    <script src="js/interactive.js"></script>
+    <!-- Mobile Features JS -->
+    <script src="js/mobile.js"></script>
     
     <!-- Scroll Animations Script -->
     <script>
