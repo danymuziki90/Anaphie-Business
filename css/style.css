@@ -208,8 +208,13 @@
 }
 
 @keyframes skeletonLoading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /* Loading Spinners */
@@ -230,7 +235,9 @@
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Pulse Loading Effect */
@@ -244,8 +251,17 @@
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 /* Button Loading States */
@@ -285,8 +301,13 @@
 }
 
 @keyframes imgLoading {
-    0% { background-position: 0 0; }
-    100% { background-position: 20px 20px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 20px 20px;
+    }
 }
 
 /* ================================
@@ -416,8 +437,13 @@
 }
 
 @keyframes toastProgress {
-    from { width: 100%; }
-    to { width: 0%; }
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
 }
 
 /* Notification Badge */
@@ -439,8 +465,15 @@
 }
 
 @keyframes badgePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 /* Floating Action Button */
@@ -474,10 +507,25 @@
 }
 
 @keyframes fabRing {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    10%, 30% { transform: scale(1.1) rotate(-10deg); }
-    20%, 40% { transform: scale(1.1) rotate(10deg); }
-    50% { transform: scale(1) rotate(0deg); }
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    10%,
+    30% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+
+    20%,
+    40% {
+        transform: scale(1.1) rotate(10deg);
+    }
+
+    50% {
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 
@@ -563,12 +611,12 @@
         justify-content: center;
         gap: 8px;
     }
-    
+
     .social-links a {
         width: 36px;
         height: 36px;
     }
-    
+
     .social-links a i {
         font-size: 16px !important;
     }
@@ -633,7 +681,12 @@ p {
     margin-bottom: 1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Poppins', sans-serif;
     color: var(--text-light);
     font-weight: 600;
@@ -694,6 +747,7 @@ a:hover {
 
 /* Mobile Dropdown Menu Fix */
 @media (max-width: 991.98px) {
+
     /* Rendre le dropdown invisible par défaut */
     .navbar-nav .dropdown-menu {
         position: absolute;
@@ -710,7 +764,7 @@ a:hover {
         transform: translateY(-10px);
         transition: all 0.3s ease;
     }
-    
+
     /* Afficher le dropdown uniquement au clic */
     .navbar-nav .dropdown-menu.show {
         display: block !important;
@@ -718,7 +772,7 @@ a:hover {
         opacity: 1 !important;
         transform: translateY(0);
     }
-    
+
     /* Cacher le dropdown quand on clique ailleurs */
     .navbar-nav .dropdown-menu.hide {
         display: none !important;
@@ -726,31 +780,31 @@ a:hover {
         opacity: 0 !important;
         transform: translateY(-10px);
     }
-    
+
     /* S'assurer que le dropdown est visible au-dessus du menu mobile */
     .navbar-nav .dropdown-menu {
         position: absolute !important;
         z-index: 1001 !important;
     }
-    
+
     .navbar-nav .dropdown-item {
         padding: 8px 16px;
         color: #333 !important;
         transition: all 0.2s ease;
     }
-    
+
     .navbar-nav .dropdown-item:hover {
         background-color: var(--primary-color);
         color: white !important;
     }
-    
+
     .navbar-nav .dropdown-toggle {
         position: relative;
         display: flex !important;
         align-items: center;
         justify-content: space-between;
     }
-    
+
     .navbar-nav .dropdown-toggle::after {
         content: '\f107';
         font-family: 'Font Awesome 6 Free';
@@ -758,16 +812,16 @@ a:hover {
         margin-left: 8px;
         transition: transform 0.2s ease;
     }
-    
+
     .navbar-nav .dropdown-toggle[aria-expanded="true"]::after {
         transform: rotate(180deg);
     }
-    
+
     /* S'assurer que le dropdown est invisible au-dessus du menu mobile */
     .navbar-collapse {
         position: relative;
     }
-    
+
     .navbar-collapse.show .dropdown-menu {
         position: absolute;
         background: white;
@@ -783,7 +837,7 @@ a:hover {
         transform: translateY(-10px);
         transition: all 0.3s ease;
     }
-    
+
     .navbar-collapse.show .dropdown-menu.show {
         display: block !important;
         visibility: visible !important;
@@ -820,6 +874,7 @@ a:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(242, 169, 0, 0.3);
 }
+
 .btn {
     border-radius: 6px;
     font-weight: 600;
@@ -850,10 +905,10 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(0, 0, 0, 0.3) 0%, 
-        rgba(0, 0, 0, 0.2) 50%, 
-        rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.3) 100%);
     z-index: 1;
 }
 
@@ -886,10 +941,10 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, 
-        rgba(0, 0, 0, 0.1) 0%, 
-        transparent 50%, 
-        rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(45deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.1) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -900,11 +955,11 @@ a:hover {
         min-height: 300px;
         padding: 3rem 0;
     }
-    
+
     .page-header-about h1 {
         font-size: 2.2rem;
     }
-    
+
     .page-header-about .lead {
         font-size: 1.1rem;
     }
@@ -915,11 +970,11 @@ a:hover {
         min-height: 250px;
         padding: 2rem 0;
     }
-    
+
     .page-header-about h1 {
         font-size: 1.8rem;
     }
-    
+
     .page-header-about .lead {
         font-size: 1rem;
     }
@@ -1077,6 +1132,15 @@ a:hover {
     padding: 4rem 0;
 }
 
+/* Supprimer le gradient orange des pages de services */
+.page-header-fret-aerien,
+.page-header-fret-maritime,
+.page-header-import,
+.page-header-materiaux,
+.page-header-dedouanement {
+    background: none !important;
+}
+
 .page-header h1 {
     color: white;
     font-size: 2.5rem;
@@ -1124,8 +1188,10 @@ a:hover {
     display: flex;
     align-items: center;
     overflow: hidden;
-    margin-top: -76px; /* Compense la hauteur de la navbar */
-    padding-top: 76px; /* Réserve l'espace pour la navbar */
+    margin-top: -76px;
+    /* Compense la hauteur de la navbar */
+    padding-top: 76px;
+    /* Réserve l'espace pour la navbar */
 }
 
 .hero-background {
@@ -1313,40 +1379,41 @@ a:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section-new {
-        margin-top: -56px; /* Navbar mobile height */
+        margin-top: -56px;
+        /* Navbar mobile height */
         padding-top: 56px;
     }
-    
+
     .hero-section-new h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero-section-new .lead {
         font-size: 1.1rem;
     }
-    
+
     .hero-section-new .text-white-50 {
         font-size: 1rem;
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }
-    
+
     .hero-stats {
         padding: 1.5rem;
         margin-top: 2rem;
     }
-    
+
     .carousel-indicators {
         bottom: 20px;
     }
-    
+
     .indicator {
         width: 10px;
         height: 10px;
     }
-    
+
     .hero-content {
         padding: 2rem;
     }
@@ -1593,7 +1660,7 @@ a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.6s;
     z-index: 1;
 }
@@ -1613,7 +1680,7 @@ a:hover {
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transform: skewX(-25deg);
     transition: left 0.6s;
 }
@@ -1624,13 +1691,27 @@ a:hover {
 
 /* Animations */
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.05; }
-    50% { transform: scale(1.1); opacity: 0.08; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.05;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.08;
+    }
 }
 
 /* Responsive Design */
@@ -1638,11 +1719,11 @@ a:hover {
     .why-us-modern {
         padding: 4rem 0;
     }
-    
+
     .feature-card-modern {
         padding: 1.5rem;
     }
-    
+
     .feature-icon {
         width: 60px;
         height: 60px;
@@ -1654,32 +1735,32 @@ a:hover {
     .why-us-modern {
         padding: 3rem 0;
     }
-    
+
     .feature-card-modern {
         padding: 1.25rem;
         flex-direction: column;
         text-align: center;
     }
-    
+
     .feature-icon-wrapper {
         margin-right: 0;
         margin-bottom: 1rem;
     }
-    
+
     .feature-stats {
         justify-content: center;
     }
-    
+
     .why-bg-shape.shape-1 {
         width: 200px;
         height: 200px;
     }
-    
+
     .why-bg-shape.shape-2 {
         width: 150px;
         height: 150px;
     }
-    
+
     .why-bg-shape.shape-3 {
         width: 100px;
         height: 100px;
@@ -1690,37 +1771,37 @@ a:hover {
     .why-us-modern {
         padding: 2.5rem 0;
     }
-    
+
     .feature-card-modern {
         padding: 1rem;
         margin-bottom: 1rem;
     }
-    
+
     .feature-icon {
         width: 50px;
         height: 50px;
         font-size: 1.1rem;
     }
-    
+
     .feature-number {
         width: 25px;
         height: 25px;
         font-size: 0.7rem;
     }
-    
+
     .feature-title {
         font-size: 1rem;
     }
-    
+
     .feature-description {
         font-size: 0.85rem;
     }
-    
+
     .stat-badge {
         font-size: 0.7rem;
         padding: 0.3rem 0.6rem;
     }
-    
+
     .btn-why-cta {
         padding: 0.875rem 2rem;
         font-size: 0.9rem;
@@ -1732,32 +1813,32 @@ a:hover {
     .why-us-modern {
         padding: 2rem 0;
     }
-    
+
     .feature-card-modern {
         padding: 0.8rem;
         border-radius: 15px;
     }
-    
+
     .feature-icon {
         width: 45px;
         height: 45px;
         font-size: 1rem;
     }
-    
+
     .feature-title {
         font-size: 0.95rem;
     }
-    
+
     .feature-description {
         font-size: 0.8rem;
         line-height: 1.5;
     }
-    
+
     .stat-badge {
         font-size: 0.65rem;
         padding: 0.25rem 0.5rem;
     }
-    
+
     .btn-why-cta {
         padding: 0.75rem 1.5rem;
         font-size: 0.85rem;
@@ -1898,12 +1979,12 @@ a:hover {
     .why-us-modern {
         padding: 4rem 0;
     }
-    
+
     .feature-card {
         padding: 1.75rem;
         min-height: 160px;
     }
-    
+
     .floating-card {
         font-size: 0.8rem;
         padding: 0.75rem 1.25rem;
@@ -1914,27 +1995,27 @@ a:hover {
     .why-us-modern {
         padding: 3rem 0;
     }
-    
+
     .feature-icon-wrapper {
         flex-direction: column;
         text-align: center;
         margin-bottom: 1rem;
     }
-    
+
     .feature-icon {
         margin-right: 0;
         margin-bottom: 1rem;
     }
-    
+
     .feature-number {
         position: static;
         margin-bottom: 0.5rem;
     }
-    
+
     .why-visual {
         margin-top: 3rem;
     }
-    
+
     .feature-card {
         min-height: 140px;
     }
@@ -1944,67 +2025,67 @@ a:hover {
     .why-us-modern {
         padding: 2.5rem 0;
     }
-    
+
     .feature-card {
         padding: 1.5rem;
         margin-bottom: 1.25rem;
         min-height: 120px;
     }
-    
+
     .feature-icon {
         width: 50px;
         height: 50px;
     }
-    
+
     .feature-icon i {
         font-size: 1.25rem;
     }
-    
+
     .feature-number {
         font-size: 1.5rem;
     }
-    
+
     .feature-title {
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
     }
-    
+
     .feature-description {
         font-size: 0.9rem;
         margin-bottom: 0.75rem;
     }
-    
+
     .stat-badge {
         font-size: 0.7rem;
         padding: 0.2rem 0.6rem;
     }
-    
+
     .floating-card {
         display: none;
     }
-    
+
     .why-visual {
         padding: 1.5rem 0;
     }
-    
+
     .image-container {
         margin-bottom: 1.5rem;
     }
-    
+
     .overlay-content {
         flex-direction: column;
         gap: 1rem;
         padding: 1.5rem;
     }
-    
+
     .stat-number-large {
         font-size: 1.5rem;
     }
-    
+
     .stat-label-large {
         font-size: 0.75rem;
     }
-    
+
     .why-us-modern .btn-warning {
         padding: 0.875rem 2rem;
         font-size: 0.9rem;
@@ -2017,47 +2098,47 @@ a:hover {
     .why-us-modern {
         padding: 2rem 0;
     }
-    
+
     .feature-card {
         padding: 1.25rem;
         margin-bottom: 1rem;
         min-height: 110px;
     }
-    
+
     .feature-icon {
         width: 45px;
         height: 45px;
     }
-    
+
     .feature-icon i {
         font-size: 1.1rem;
     }
-    
+
     .feature-title {
         font-size: 1rem;
     }
-    
+
     .feature-description {
         font-size: 0.85rem;
     }
-    
+
     .stat-badge {
         font-size: 0.65rem;
         padding: 0.15rem 0.5rem;
     }
-    
+
     .overlay-content {
         padding: 1rem;
     }
-    
+
     .stat-number-large {
         font-size: 1.25rem;
     }
-    
+
     .stat-label-large {
         font-size: 0.7rem;
     }
-    
+
     .why-us-modern .btn-warning {
         padding: 0.75rem 1.5rem;
         font-size: 0.85rem;
@@ -2141,9 +2222,9 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(242, 169, 0, 0.1) 0%, 
-        rgba(74, 74, 74, 0.1) 100%);
+    background: linear-gradient(135deg,
+            rgba(242, 169, 0, 0.1) 0%,
+            rgba(74, 74, 74, 0.1) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -2222,19 +2303,19 @@ a:hover {
     .services-preview .row {
         max-width: 700px;
     }
-    
+
     .service-card {
         margin-bottom: 1.5rem;
     }
-    
+
     .service-image {
         height: 180px;
     }
-    
+
     .service-card h3 {
         font-size: 1.1rem;
     }
-    
+
     .service-card p {
         font-size: 0.85rem;
     }
@@ -2244,26 +2325,26 @@ a:hover {
     .services-preview .row {
         max-width: 100%;
     }
-    
+
     .services-preview .container {
         padding: 0 1rem;
     }
-    
+
     .service-card {
         padding: 1.5rem !important;
         margin-bottom: 1rem;
     }
-    
+
     .service-image {
         height: 160px;
         margin-bottom: 1rem;
     }
-    
+
     .service-card h3 {
         font-size: 1rem;
         margin-bottom: 0.75rem;
     }
-    
+
     .service-card p {
         font-size: 0.8rem;
         margin-bottom: 1rem;
@@ -2274,28 +2355,28 @@ a:hover {
     .services-preview {
         padding: 3rem 0;
     }
-    
+
     .service-card {
         padding: 1.25rem !important;
         border-radius: 12px;
     }
-    
+
     .service-image {
         height: 140px;
         margin-bottom: 1rem;
     }
-    
+
     .service-card h3 {
         font-size: 0.95rem;
         margin-bottom: 0.5rem;
     }
-    
+
     .service-card p {
         font-size: 0.75rem;
         line-height: 1.5;
         margin-bottom: 0.75rem;
     }
-    
+
     .btn-link {
         font-size: 0.8rem;
         padding: 0.5rem 0.75rem;
@@ -2390,14 +2471,14 @@ a:hover {
     border-radius: 25px;
     font-weight: 600;
     font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(242, 169, 0, 0.3);
 }
 
 /* Titre CTA */
 .cta-title {
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
@@ -2426,7 +2507,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.95);
     font-size: 1.2rem;
     font-weight: 400;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cta-subtitle .text-light {
@@ -2447,7 +2528,7 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
 }
 
@@ -2458,7 +2539,7 @@ a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.6s;
     z-index: 1;
 }
@@ -2469,13 +2550,13 @@ a:hover {
 
 .btn-modern:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .btn-cta-primary {
     background: linear-gradient(45deg, #fff, #f8f9fa);
     color: var(--primary-color);
-    border: 2px solid rgba(255,255,255,0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-cta-primary:hover {
@@ -2486,11 +2567,11 @@ a:hover {
 .btn-cta-secondary {
     background: transparent;
     color: #fff;
-    border: 2px solid rgba(255,255,255,0.8);
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .btn-cta-secondary:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-color: #fff;
     color: #fff;
 }
@@ -2551,32 +2632,32 @@ a:hover {
     flex-direction: column;
     align-items: center;
     padding: 1.5rem 1rem;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     height: 100%;
 }
 
 .trust-item:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .trust-icon {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .trust-text {
@@ -2593,7 +2674,7 @@ a:hover {
     top: 10%;
     left: 5%;
     font-size: 2.5rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     animation: float1 6s ease-in-out infinite;
     z-index: 1;
 }
@@ -2603,7 +2684,7 @@ a:hover {
     top: 20%;
     right: 10%;
     font-size: 2rem;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     animation: float2 8s ease-in-out infinite;
     z-index: 1;
 }
@@ -2613,7 +2694,7 @@ a:hover {
     bottom: 15%;
     left: 8%;
     font-size: 2.2rem;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     animation: float3 7s ease-in-out infinite;
     z-index: 1;
 }
@@ -2631,7 +2712,7 @@ a:hover {
 
 .particle {
     position: absolute;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     animation: particleFloat 10s infinite linear;
 }
@@ -2686,7 +2767,7 @@ a:hover {
 .shape-1 {
     width: 200px;
     height: 200px;
-    border: 3px solid rgba(255,255,255,0.3);
+    border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     top: 10%;
     right: 5%;
@@ -2706,7 +2787,7 @@ a:hover {
 .shape-3 {
     width: 100px;
     height: 100px;
-    border: 2px solid rgba(255,140,0,0.3);
+    border: 2px solid rgba(255, 140, 0, 0.3);
     border-radius: 15px;
     top: 60%;
     left: 5%;
@@ -2715,35 +2796,83 @@ a:hover {
 
 /* Animations */
 @keyframes float1 {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
 }
 
 @keyframes float2 {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(-5deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
 }
 
 @keyframes float3 {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-25px) rotate(3deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(3deg);
+    }
 }
 
 @keyframes particleFloat {
-    0% { transform: translateY(0px) translateX(0px); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+    0% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.1; }
-    50% { transform: scale(1.1); opacity: 0.2; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
 }
 
 /* Responsive CTA */
@@ -2751,42 +2880,42 @@ a:hover {
     .cta-title {
         font-size: 2rem;
     }
-    
+
     .cta-subtitle {
         font-size: 1rem;
     }
-    
+
     .btn-modern {
         padding: 1rem 2rem;
         font-size: 0.9rem;
     }
-    
+
     .trust-item {
         padding: 1rem 0.5rem;
     }
-    
+
     .trust-icon {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
     }
-    
+
     .floating-element-1,
     .floating-element-2,
     .floating-element-3 {
         font-size: 1.5rem;
     }
-    
+
     .shape-1 {
         width: 150px;
         height: 150px;
     }
-    
+
     .shape-2 {
         width: 100px;
         height: 100px;
     }
-    
+
     .shape-3 {
         width: 80px;
         height: 80px;
@@ -2798,25 +2927,25 @@ a:hover {
         min-height: 700px;
         padding: 3rem 0;
     }
-    
+
     .cta-title {
         font-size: 1.8rem;
     }
-    
+
     .cta-subtitle {
         font-size: 0.95rem;
     }
-    
+
     .btn-modern {
         padding: 0.8rem 1.5rem;
         font-size: 0.85rem;
         margin-bottom: 1rem;
     }
-    
+
     .trust-item {
         padding: 0.8rem 0.3rem;
     }
-    
+
     .trust-text {
         font-size: 0.8rem;
     }
@@ -2980,7 +3109,7 @@ a:hover {
         height: 60px;
         font-size: 1.2rem;
     }
-    
+
     .video-caption p {
         font-size: 0.85rem;
     }
@@ -2992,7 +3121,7 @@ a:hover {
         height: 50px;
         font-size: 1rem;
     }
-    
+
     .video-caption p {
         font-size: 0.8rem;
     }
@@ -3034,9 +3163,23 @@ a:hover {
     z-index: 1;
 }
 
-.zone-float-1 { top: 10%; left: 5%; animation-delay: 0s; }
-.zone-float-2 { top: 20%; right: 8%; animation-delay: 2s; }
-.zone-float-3 { bottom: 15%; left: 10%; animation-delay: 4s; }
+.zone-float-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.zone-float-2 {
+    top: 20%;
+    right: 8%;
+    animation-delay: 2s;
+}
+
+.zone-float-3 {
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 4s;
+}
 
 /* Particules */
 .zone-particles {
@@ -3058,10 +3201,29 @@ a:hover {
     animation: zone-particle-float 8s linear infinite;
 }
 
-.zone-particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
-.zone-particle-2 { top: 60%; right: 15%; animation-delay: 2s; }
-.zone-particle-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
-.zone-particle-4 { top: 40%; right: 25%; animation-delay: 6s; }
+.zone-particle-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.zone-particle-2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.zone-particle-3 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.zone-particle-4 {
+    top: 40%;
+    right: 25%;
+    animation-delay: 6s;
+}
 
 /* Cartes modernes */
 .zone-card {
@@ -3130,7 +3292,7 @@ a:hover {
 
 .flag-emoji {
     font-size: 2rem;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .zone-card h4 {
@@ -3175,7 +3337,7 @@ a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left 0.6s ease;
     z-index: 1;
 }
@@ -3220,7 +3382,7 @@ a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.6s ease;
 }
 
@@ -3246,9 +3408,20 @@ a:hover {
     animation: btn-particle-float 3s ease-out infinite;
 }
 
-.btn-zone-particle:nth-child(1) { left: 20%; animation-delay: 0s; }
-.btn-zone-particle:nth-child(2) { left: 50%; animation-delay: 1s; }
-.btn-zone-particle:nth-child(3) { left: 80%; animation-delay: 2s; }
+.btn-zone-particle:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.btn-zone-particle:nth-child(2) {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.btn-zone-particle:nth-child(3) {
+    left: 80%;
+    animation-delay: 2s;
+}
 
 .btn-zone-cta:hover .btn-zone-particle {
     opacity: 1;
@@ -3256,45 +3429,126 @@ a:hover {
 
 /* Animations 2026 */
 @keyframes zone-float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @keyframes zone-pulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
 @keyframes zone-particle-float {
-    0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.3; }
-    90% { opacity: 0.3; }
-    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 @keyframes btn-particle-float {
-    0% { transform: translateY(0px); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-30px); opacity: 0; }
+    0% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
 }
 
 /* Responsive Design 2026 */
 @media (max-width: 768px) {
-    .zone-floating-element { font-size: 2rem; }
-    .zone-icon-bg { width: 60px; height: 60px; font-size: 1.5rem; }
-    .zone-icon-pulse { width: 60px; height: 60px; }
-    .flag-emoji { font-size: 1.5rem; }
-    .zone-feature-item { font-size: 0.8rem; padding: 6px 10px; }
+    .zone-floating-element {
+        font-size: 2rem;
+    }
+
+    .zone-icon-bg {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .zone-icon-pulse {
+        width: 60px;
+        height: 60px;
+    }
+
+    .flag-emoji {
+        font-size: 1.5rem;
+    }
+
+    .zone-feature-item {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
 }
 
 @media (max-width: 576px) {
-    .zone-floating-element { font-size: 1.5rem; }
-    .zone-icon-bg { width: 50px; height: 50px; font-size: 1.2rem; }
-    .zone-icon-pulse { width: 50px; height: 50px; }
-    .flag-emoji { font-size: 1.2rem; }
-    .zone-feature-item { font-size: 0.75rem; padding: 5px 8px; gap: 6px; }
-    .btn-zone-cta { padding: 15px 30px; font-size: 1rem; }
+    .zone-floating-element {
+        font-size: 1.5rem;
+    }
+
+    .zone-icon-bg {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .zone-icon-pulse {
+        width: 50px;
+        height: 50px;
+    }
+
+    .flag-emoji {
+        font-size: 1.2rem;
+    }
+
+    .zone-feature-item {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+        gap: 6px;
+    }
+
+    .btn-zone-cta {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
 }
 
 /* ---- VALUE CARDS ---- */
@@ -3557,6 +3811,7 @@ a:hover {
 }
 
 @media (max-width: 576px) {
+
     .hero-section h1,
     .page-header h1 {
         font-size: 1.5rem;
@@ -3583,6 +3838,7 @@ a:hover {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -3590,9 +3846,12 @@ a:hover {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -3635,7 +3894,8 @@ a:hover {
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -3684,9 +3944,10 @@ a:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .video-container {
-        padding-bottom: 65%; /* Slightly adjusted for mobile */
+        padding-bottom: 65%;
+        /* Slightly adjusted for mobile */
     }
-    
+
     .video-play-icon {
         font-size: 3rem;
     }
